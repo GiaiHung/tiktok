@@ -11,17 +11,17 @@ function Button({
     to,
     href,
     children,
-    primary,
-    outlined,
-    text,
-    small,
-    large,
-    disabled,
-    rounded,
+    primary = false,
+    outlined = false,
+    text = false,
+    small = false,
+    large = false,
+    disabled = false,
+    rounded = false,
+    className,
     leftIcon,
     rightIcon,
-    className,
-    ...props
+    ...props // OnClick, OnMouseOver,....
 }) {
     let Component = 'button'
     const classes = cx('wrapper', {
@@ -35,6 +35,7 @@ function Button({
         [className]: className,
     })
 
+    // Handle if we pass in to or href, then change it to a or Link - button as default
     if (to) {
         Component = Link
         props.to = to

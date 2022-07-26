@@ -12,6 +12,7 @@ const cx = classNames.bind(styles)
 
 function Menu({ children, items = [], onChange, hideOnClick = false }) {
     const [history, setHistory] = useState([{ data: items }])
+
     // Only show the last item, so when we push new items(children), it will be only thing shown
     const currentMenu = history[history.length - 1]
 
@@ -58,6 +59,7 @@ function Menu({ children, items = [], onChange, hideOnClick = false }) {
         <div className={cx('more-result')} tabIndex="-1" {...attributes}>
             <div className={cx('menu-list')}>
                 <PopperWrapper>
+                    {/* Header and back button only shown when menu does have children */}
                     {history.length > 1 && <Header title={currentMenu.title} onBack={handleOnBack} />}
                     <div className={cx('menu-scroll')}>{renderItems()}</div>
                 </PopperWrapper>

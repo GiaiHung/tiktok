@@ -132,7 +132,7 @@ function Header() {
                 </div>
             </div>
         </header>
-        //     <Button text rounded className={cx('get-app-btn')}>
+        // <Button text rounded className={cx('get-app-btn')}>
         //     Get app
         // </Button>
     )

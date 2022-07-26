@@ -79,6 +79,8 @@
     min-height: 42px;
 }
 
+// If icon on the left, margin-left on title
+// If icon on the right, margin-left on icon
 .icon + .title,
 .title + .icon {
     margin-left: 8px;
