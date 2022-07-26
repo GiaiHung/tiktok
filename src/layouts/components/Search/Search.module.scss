@@ -1,0 +1,111 @@
+.search,
+.search-result {
+    width: 361px;
+}
+
+.search {
+    position: relative;
+    height: var(--search-height);
+    background-color: rgba(22, 24, 35, 0.06);
+    padding-left: 16px;
+    border-radius: 92px;
+    display: flex;
+    align-items: center;
+    border: 1.5px solid transparent;
+
+    input {
+        flex: 1;
+        padding: 12px 0;
+        padding-right: 10px;
+        background-color: transparent;
+        color: #828282;
+        font-size: 1rem;
+        font-weight: 400;
+        font-family: var(--default-font);
+        max-width: 262px;
+        overflow-x: auto;
+    }
+
+    input:not(:placeholder-shown) ~ .search-btn {
+        color: rgba(22, 24, 35, 0.75);
+    }
+
+    input:focus {
+        outline: 0px;
+    }
+
+    input::placeholder {
+        color: rgba(22, 24, 35);
+    }
+
+    &:focus-within {
+        border: 1.5px solid rgba(22, 24, 35, 0.2);
+    }
+}
+
+.search-title {
+    color: rgba(22, 24, 35, 0.5);
+    font-size: 1rem;
+}
+
+.clear,
+.loading {
+    position: absolute;
+    top: 50%;
+    right: calc(var(--search-btn-width) + 1rem);
+    color: var(--search-color);
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-50%);
+}
+
+.loading {
+    animation: spinner 1s infinite linear;
+}
+
+@keyframes spinner {
+    from {
+        transform: translateY(-50%) rotate(0);
+    }
+    to {
+        transform: translateY(-50%) rotate(360deg);
+    }
+}
+
+.search-btn {
+    right: 0;
+    position: absolute;
+    width: var(--search-btn-width);
+    height: 100%;
+    border-top-right-radius: 92px;
+    border-bottom-right-radius: 92px;
+    color: var(--search-color);
+    font-size: 1.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+        background-color: rgba(22, 24, 35, 0.03);
+    }
+
+    &::after {
+        position: absolute;
+        left: 0;
+        content: '';
+        top: var(--search-top-spacing);
+        width: 1px;
+        height: calc(var(--search-height) - var(--search-top-spacing) * 2);
+        background-color: var(--search-color);
+    }
+
+    &:active {
+        background-color: rgba(22, 24, 35, 0.06);
+    }
+}
+
+.wrapper-override {
+    padding: 16px !important;
+}
